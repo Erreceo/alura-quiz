@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
