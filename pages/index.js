@@ -27,13 +27,13 @@ export default function Home() {
                <meta property="og:url" content="https://alura-quiz-red.vercel.app/"></meta>
                <meta property="og:title" content="The legend of zelda"></meta>
                <meta property="og:description" content=""></meta>
-               <meta property="og:image" content=""></meta>
+               <meta property="og:image" content={db.bg}></meta>
 
                <meta property="twitter:card" content="summary_large_image"></meta>
                    <meta property="twitter:url" content="https://alura-quiz-red.vercel.app/"></meta>
                    <meta property="twitter:title" content="The legend of zelda"></meta>
                    <meta property="twitter:description" content=""></meta>
-                   <meta property="twitter:image" content=""></meta>
+                   <meta property="twitter:image" content={db.bg}></meta>
             </>
             <QuizContainer>
               <Widget>
