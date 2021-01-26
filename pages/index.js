@@ -19,7 +19,22 @@ const QuizContainer = styled.div`
 export default function Home() {
   return (
         <QuizBackground backgroundImage={db.bg}>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+           <>
+               <meta name="title" content="The legend of zelda"></meta>
+               <meta name="description" content=""></meta>
+
+               <meta property="og:type" content="website"></meta>
+               <meta property="og:url" content="https://alura-quiz-red.vercel.app/"></meta>
+               <meta property="og:title" content="The legend of zelda"></meta>
+               <meta property="og:description" content=""></meta>
+               <meta property="og:image" content=""></meta>
+
+               <meta property="twitter:card" content="summary_large_image"></meta>
+                   <meta property="twitter:url" content="https://alura-quiz-red.vercel.app/"></meta>
+                   <meta property="twitter:title" content="The legend of zelda"></meta>
+                   <meta property="twitter:description" content=""></meta>
+                   <meta property="twitter:image" content=""></meta>
+            </>
             <QuizContainer>
               <Widget>
                  <Widget.Header>
