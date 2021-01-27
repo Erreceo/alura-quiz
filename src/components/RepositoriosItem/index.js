@@ -9,6 +9,9 @@ const RepositorioArea = styled.div`
   flex: 1;
   justify-content: flex-start;
   align-items: center;
+  font-weight: normal;
+  line-height: 17px;
+  font-size: 14px;
 `;
 
 const RepositorioLabel = styled.label`
