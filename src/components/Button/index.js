@@ -13,5 +13,6 @@ const Button = styled.button`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
+  transition: background-color 0.2s linear;
 `;
 export default Button;
