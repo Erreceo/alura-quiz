@@ -59,7 +59,7 @@ export default function Home() {
               Teste os seus conhecimentos sobre Zelda e divirta-se criando o seu AluraQuiz!
             </Paragrafo>
             <form onSubmit={onSubmit}>
-              <Input onChange={changeName} placeholder="Diz aí o seu nome pra jogar :)" />
+              <Input onChange={changeName} placeholder="Diz aí o seu nome pra jogar :)" style={{ color: 'white' }} />
               <Button disabled={name.length === 0}>JOGAR</Button>
             </form>
           </Widget.Content>
