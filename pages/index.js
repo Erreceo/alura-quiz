@@ -9,27 +9,10 @@ import db from '../db.json';
 import QuizLogo from '../src/components/QuizLogo';
 import Button from '../src/components/Button';
 import Input from '../src/components/Input';
+import QuizContainer from '../src/components/QuizContainer';
+import Paragrafo from '../src/components/Paragrafo';
+import Header from '../src/components/Header';
 import RepositorioItem from '../src/components/RepositoriosItem';
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px){
-    margin: auto;
-    padding: 15px;
-  }
-`;
-const Paragrafo = styled.p`
-    font-size: 14px;
-    font-weight: normal;
-    margin: 0;  
-`;
-
-const Header = styled.h1`
-  margin-bottom: 8px !important;
-`;
 
 export default function Home() {
   const router = useRouter();
