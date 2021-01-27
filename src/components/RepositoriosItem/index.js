@@ -17,11 +17,9 @@ const RepositorioLabel = styled.label`
 
 const RepositorioItem = ({ label }) => (
   <RepositorioArea>
-
     <RepositorioLabel>
       {label}
     </RepositorioLabel>
-
   </RepositorioArea>
 );
 
