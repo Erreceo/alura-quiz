@@ -20,6 +20,11 @@ const QuizContainer = styled.div`
     padding: 15px;
   }
 `;
+const Paragrafo = styled.p`
+    font-size: 14px;
+    font-weight: normal;
+  margin: 0;
+  `;
 
 export default function Home() {
   const router = useRouter();
@@ -41,10 +46,13 @@ export default function Home() {
         <Widget>
           <Widget.Header>
             <h1>
-              The legend of zelda
+              The legend of Zelda
             </h1>
           </Widget.Header>
           <Widget.Content>
+            <Paragrafo>
+              Teste os seus conhecimentos sobre Zelda e divirta-se criando o seu AluraQuiz!
+            </Paragrafo>
             <form onSubmit={onSubmit}>
               <Input onChange={changeName} placeholder="Diz aí o seu nome pra jogar :)" />
               <Button disabled={name.length === 0}>JOGAR</Button>

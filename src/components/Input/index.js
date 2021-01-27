@@ -7,6 +7,7 @@ const Input = styled.input`
   height: 40px;
   border: 1px solid #979797;
   border-radius: 4px;
+  margin-top: 32px;
 `;
 
 export default Input;
