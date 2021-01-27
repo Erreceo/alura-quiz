@@ -9,6 +9,7 @@ import db from '../db.json';
 import QuizLogo from '../src/components/QuizLogo';
 import Button from '../src/components/Button';
 import Input from '../src/components/Input';
+import RepositorioItem from '../src/components/RepositoriosItem';
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -23,8 +24,12 @@ const QuizContainer = styled.div`
 const Paragrafo = styled.p`
     font-size: 14px;
     font-weight: normal;
-  margin: 0;
-  `;
+    margin: 0;  
+`;
+
+const Header = styled.h1`
+  margin-bottom: 8px !important;
+`;
 
 export default function Home() {
   const router = useRouter();
@@ -61,12 +66,13 @@ export default function Home() {
         </Widget>
         <Widget>
           <Widget.Content>
-            <h1>
-              The legend of zelda...
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet...
-            </p>
+            <Header>
+              Quizes da galera
+            </Header>
+            <Paragrafo>
+              Dá uma olhada nesses quizes incríveis que o pessoal da imersão React fez:
+            </Paragrafo>
+            <RepositorioItem label="clebinho" />
           </Widget.Content>
         </Widget>
         <Footer />
