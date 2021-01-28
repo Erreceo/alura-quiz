@@ -12,7 +12,7 @@ import Input from '../src/components/Input';
 import QuizContainer from '../src/components/QuizContainer';
 import Paragrafo from '../src/components/Paragrafo';
 import Header from '../src/components/Header';
-import RepositorioItem from '../src/components/RepositoriosItem';
+import Item from '../src/components/Item';
 
 export default function Home() {
   const router = useRouter();
@@ -29,8 +29,8 @@ export default function Home() {
 
   return (
     <QuizBackground backgroundImage={db.bg}>
-      <QuizLogo />
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>
@@ -55,7 +55,7 @@ export default function Home() {
             <Paragrafo>
               Dá uma olhada nesses quizes incríveis que o pessoal da imersão React fez:
             </Paragrafo>
-            <RepositorioItem label="clebinho" />
+            <Item label="clebinho" />
           </Widget.Content>
         </Widget>
         <Footer />

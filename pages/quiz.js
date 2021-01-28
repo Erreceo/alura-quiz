@@ -1,10 +1,51 @@
 import React from 'react';
 import db from '../db.json';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizContainer from '../src/components/QuizContainer';
+import Widget from '../src/components/Widget';
+import Button from '../src/components/Button';
+import LoadingWidget from '../src/components/LoadingWidget';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizImage from '../src/components/QuizImage';
+import AlternativeButton from '../src/components/AlternativeButton';
+
+const QuestionWidget = ({ question, total, questionIndex }) => (
+  <Widget>
+    <Widget.Header>
+      <h3>
+        {`Pergunta ${questionIndex} de ${total}`}
+      </h3>
+    </Widget.Header>
+    <QuizImage src={question.image} alt="Descrição" />
+    <Widget.Content>
+      <h2>
+        {question.title}
+      </h2>
+      <p>
+        {question.description}
+      </p>
+      {
+          question.alternatives.map((item) => <AlternativeButton>{item}</AlternativeButton>)
+        }
+      <Button>Confirmar</Button>
+    </Widget.Content>
+  </Widget>
+);
 
 export default function QuizPage() {
+  const question = db.questions[0];
+
   return (
-    <div>
-      {db.questions.map((item) => <div><span>{item.title}</span></div>)}
-    </div>
+    <QuizBackground backgroundImage={db.bg}>
+      <QuizContainer>
+        <QuizLogo />
+        <QuestionWidget question={question} total={db.questions.length} />
+        <LoadingWidget />
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/rodrigoXiita" />
+    </QuizBackground>
   );
 }
