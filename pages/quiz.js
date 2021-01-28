@@ -27,8 +27,9 @@ const QuestionWidget = ({ question, total, questionIndex }) => (
         {question.description}
       </p>
       {
-          question.alternatives.map((item) => <AlternativeButton>{item}</AlternativeButton>)
-        }
+          // eslint-disable-next-line max-len
+          question.alternatives.map((item) => <AlternativeButton key={item}>{item}</AlternativeButton>)
+      }
       <Button>Confirmar</Button>
     </Widget.Content>
   </Widget>
@@ -36,13 +37,14 @@ const QuestionWidget = ({ question, total, questionIndex }) => (
 
 export default function QuizPage() {
   const question = db.questions[0];
+  const loading = true;
 
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
-        <QuestionWidget question={question} total={db.questions.length} />
-        <LoadingWidget />
+        {!loading && <QuestionWidget question={question} total={db.questions.length} />}
+        {loading && <LoadingWidget />}
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/rodrigoXiita" />
