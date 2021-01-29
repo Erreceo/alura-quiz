@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Widget from '../src/components/Widget';
