@@ -86,7 +86,7 @@ export default function QuizPage() {
   };
   const goBack = () => {
     const previousQuestion = currentQuestion - 1;
-    if (previousQuestion < 0) {
+    if (previousQuestion >= 0) {
       setPontuacao([...pontuacao.slice(0, (pontuacao.length - 1))]);
       setCurrrentQuestion(previousQuestion);
     }
