@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import db from '../db.json';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
@@ -22,9 +24,15 @@ const QuestionWidget = ({
   return (
     <Widget>
       <Widget.Header>
-        <h3>
-          {`Pergunta ${questionIndex} de ${total}`}
-        </h3>
+        <FontAwesomeIcon icon={faArrowLeft} style={{ marginLeft: '-17px' }} />
+        <div style={{
+          display: 'flex', justifyContent: 'center', alignItems: 'center', flex: '1',
+        }}
+        >
+          <h3>
+            {`Pergunta ${questionIndex} de ${total}`}
+          </h3>
+        </div>
       </Widget.Header>
       <QuizImage src={question.image} alt="Descrição" />
       <Widget.Content>
@@ -52,7 +60,7 @@ const screenStates = {
 export default function QuizPage() {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [currentQuestion, setCurrrentQuestion] = useState(0);
-  const [pontuacao, setPontuacao] = useState(0);
+  const [pontuacao, setPontuacao] = useState([]);
   const question = db.questions[currentQuestion];
   const rightAnswerIndex = db.questions[currentQuestion].answer;
   const answer = db.questions[currentQuestion].alternatives[rightAnswerIndex];
@@ -64,9 +72,11 @@ export default function QuizPage() {
     }, 1500);
   }, []);
 
+  const isAnswerRight = (rightAnswer, currentAnswer) => (rightAnswer === currentAnswer ? 1 : 0);
   const handleSubmitQuestion = (currentAnswer, rightAnswer) => {
     const nextQuestion = currentQuestion + 1;
-    if (rightAnswer === currentAnswer) { setPontuacao(pontuacao + 1); }
+
+    setPontuacao([...pontuacao, isAnswerRight(currentAnswer, rightAnswer)]);
 
     if (nextQuestion < totalQuestion) {
       setCurrrentQuestion(nextQuestion);
@@ -74,6 +84,8 @@ export default function QuizPage() {
       setScreenState(screenStates.RESULT);
     }
   };
+
+  const getScore = () => pontuacao.reduce((item, aux) => aux += item);
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -90,7 +102,7 @@ export default function QuizPage() {
             />
             )}
         {screenState === screenStates.LOADING && <LoadingWidget />}
-        {screenState === screenStates.RESULT && <div>{`Você acertou ${pontuacao} questões, parábens!`}</div>}
+        {screenState === screenStates.RESULT && <div>{`Você acertou ${getScore()} questões, parábens!`}</div>}
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/rodrigoXiita" />
