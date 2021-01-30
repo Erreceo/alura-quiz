@@ -14,7 +14,7 @@ import QuizImage from '../src/components/QuizImage';
 import AB from '../src/components/AlternativeButton';
 
 const QuestionWidget = ({
-  question, total, questionIndex, action, rightAnswer,
+  question, total, questionIndex, action, rightAnswer, goBack,
 }) => {
   let answer = null;
   const handleSelection = (item) => {
@@ -24,7 +24,7 @@ const QuestionWidget = ({
   return (
     <Widget>
       <Widget.Header>
-        <FontAwesomeIcon icon={faArrowLeft} style={{ marginLeft: '-17px' }} />
+        <FontAwesomeIcon icon={faArrowLeft} style={{ marginLeft: '-17px' }} onClick={goBack} />
         <div style={{
           display: 'flex', justifyContent: 'center', alignItems: 'center', flex: '1',
         }}
@@ -84,6 +84,11 @@ export default function QuizPage() {
       setScreenState(screenStates.RESULT);
     }
   };
+  const goBack = () => {
+    const previousQuestion = currentQuestion - 1;
+    setPontuacao([...pontuacao.slice(0, (pontuacao.length - 1))]);
+    setCurrrentQuestion(previousQuestion);
+  };
 
   const getScore = () => pontuacao.reduce((item, aux) => aux += item);
 
@@ -99,6 +104,7 @@ export default function QuizPage() {
               total={totalQuestion}
               action={handleSubmitQuestion}
               rightAnswer={answer}
+              goBack={goBack}
             />
             )}
         {screenState === screenStates.LOADING && <LoadingWidget />}
