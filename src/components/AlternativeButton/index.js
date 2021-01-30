@@ -16,6 +16,8 @@ const AlternativeButton = styled.button`
     &:hover{
       background-color: rgba(63, 81, 181, 0.9)
     }
+    
+  }
 `;
 
 export default AlternativeButton;
