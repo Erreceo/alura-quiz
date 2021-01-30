@@ -86,8 +86,10 @@ export default function QuizPage() {
   };
   const goBack = () => {
     const previousQuestion = currentQuestion - 1;
-    setPontuacao([...pontuacao.slice(0, (pontuacao.length - 1))]);
-    setCurrrentQuestion(previousQuestion);
+    if (previousQuestion < 0) {
+      setPontuacao([...pontuacao.slice(0, (pontuacao.length - 1))]);
+      setCurrrentQuestion(previousQuestion);
+    }
   };
 
   const getScore = () => pontuacao.reduce((item, aux) => aux += item);
